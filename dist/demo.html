@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌟 Hallyu API Static Demo</title>
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        h1 { 
+            text-align: center; 
+            color: #4a5568; 
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .search-section {
+            background: #f7fafc;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        .search-box { 
+            display: flex; 
+            gap: 10px; 
+            margin: 15px 0; 
+            flex-wrap: wrap;
+        }
+        .search-box input { 
+            padding: 12px 15px; 
+            flex: 1; 
+            min-width: 250px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .search-box input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        .search-box button { 
+            padding: 12px 25px; 
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .search-box button:hover {
+            background: #5a67d8;
+            transform: translateY(-1px);
+        }
+        .filter-options {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+        .filter-options select {
+            padding: 8px 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            background: white;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        .widget {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #48bb78;
+        }
+        .widget h3 {
+            margin-top: 0;
+            color: #2d3748;
+        }
+        .results { 
+            margin: 20px 0; 
+        }
+        .result-item { 
+            border: 1px solid #e2e8f0; 
+            margin: 15px 0; 
+            padding: 20px; 
+            border-radius: 10px; 
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.2s;
+        }
+        .result-item:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .result-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .result-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2d3748;
+        }
+        .result-type {
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+        .result-details {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        .relevance-score {
+            background: #48bb78;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #718096;
+        }
+        .error {
+            background: #fed7d7;
+            color: #c53030;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        .birthday-item, .anniversary-item {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #ed8936;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #718096;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌟 Hallyu API Static Demo</h1>
+        
+        <div id="stats" class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="artistCount">-</div>
+                <div class="stat-label">Artists</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="groupCount">-</div>
+                <div class="stat-label">Groups</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="actorCount">-</div>
+                <div class="stat-label">Actors</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalCount">-</div>
+                <div class="stat-label">Total Records</div>
+            </div>
+        </div>
+        
+        <div class="search-section">
+            <h3>🔍 Search Database</h3>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search for artists, groups, or actors... (try 'BTS', 'IU', 'BLACKPINK')">
+                <button onclick="performSearch()">Search</button>
+            </div>
+            <div class="filter-options">
+                <select id="typeFilter">
+                    <option value="all">All Types</option>
+                    <option value="artist">Artists Only</option>
+                    <option value="group">Groups Only</option>
+                    <option value="actor">Actors Only</option>
+                </select>
+                <select id="limitFilter">
+                    <option value="5">5 Results</option>
+                    <option value="10" selected>10 Results</option>
+                    <option value="20">20 Results</option>
+                    <option value="50">50 Results</option>
+                </select>
+                <label>
+                    <input type="checkbox" id="fuzzySearch"> Fuzzy Search
+                </label>
+            </div>
+        </div>
+        
+        <div class="widget">
+            <h3>🎂 Birthdays Today</h3>
+            <div id="birthdaysToday">Loading...</div>
+        </div>
+        
+        <div class="widget">
+            <h3>🎉 Anniversaries Today</h3>
+            <div id="anniversariesToday">Loading...</div>
+        </div>
+        
+        <div class="results" id="searchResults"></div>
+    </div>
+
+    <script src="hallyu-static-api.js"></script>
+    <script>
+        const api = new HallyuStaticAPI('./data');
+        
+        async function performSearch() {
+            const query = document.getElementById('searchInput').value.trim();
+            if (!query) return;
+            
+            const type = document.getElementById('typeFilter').value;
+            const limit = parseInt(document.getElementById('limitFilter').value);
+            const fuzzy = document.getElementById('fuzzySearch').checked;
+            
+            const resultsContainer = document.getElementById('searchResults');
+            resultsContainer.innerHTML = '<div class="loading">🔍 Searching...</div>';
+            
+            try {
+                const results = await api.search(query, { type, limit, fuzzy });
+                displayResults(results.data);
+            } catch (error) {
+                resultsContainer.innerHTML = `<div class="error">❌ Search failed: ${error.message}</div>`;
+            }
+        }
+        
+        function displayResults(results) {
+            const container = document.getElementById('searchResults');
+            
+            if (results.length === 0) {
+                container.innerHTML = '<div class="no-results">🤷‍♀️ No results found. Try a different search term or enable fuzzy search.</div>';
+                return;
+            }
+            
+            container.innerHTML = `
+                <h3>📋 Search Results (${results.length} found)</h3>
+                ${results.map(item => {
+                    const type = getItemType(item);
+                    const name = item.StageName || item.Name || item.FullName;
+                    
+                    return `
+                        <div class="result-item">
+                            <div class="result-header">
+                                <span class="result-title">${name}</span>
+                                <div>
+                                    <span class="result-type">${type}</span>
+                                    ${item.relevance ? `<span class="relevance-score">${item.relevance}% match</span>` : ''}
+                                </div>
+                            </div>
+                            <div class="result-details">
+                                ${item.FullName && item.FullName !== name ? `<p><strong>Full Name:</strong> ${item.FullName}</p>` : ''}
+                                ${item.KoreanName ? `<p><strong>Korean Name:</strong> ${item.KoreanName}</p>` : ''}
+                                ${item.Company ? `<p><strong>Company:</strong> ${item.Company}</p>` : ''}
+                                ${item.Debut ? `<p><strong>Debut:</strong> ${item.Debut}</p>` : ''}
+                                ${item.DateOfBirth ? `<p><strong>Birthday:</strong> ${item.DateOfBirth}</p>` : ''}
+                                ${item.FanbaseName ? `<p><strong>Fandom:</strong> ${item.FanbaseName}</p>` : ''}
+                                ${item.CurrentMemberCount ? `<p><strong>Members:</strong> ${item.CurrentMemberCount}</p>` : ''}
+                                ${item.Active ? `<p><strong>Status:</strong> ${item.Active === 'Yes' ? '✅ Active' : '❌ Inactive'}</p>` : ''}
+                            </div>
+                        </div>
+                    `;
+                }).join('')}
+            `;
+        }
+        
+        function getItemType(item) {
+            if (item.Id > 2000) return 'Actor';
+            if (item.Id > 1000) return 'Group';
+            return 'Artist';
+        }
+        
+        async function loadStats() {
+            try {
+                const stats = await api.getStats();
+                if (stats.success) {
+                    document.getElementById('artistCount').textContent = stats.data.totalArtists.toLocaleString();
+                    document.getElementById('groupCount').textContent = stats.data.totalGroups.toLocaleString();
+                    document.getElementById('actorCount').textContent = stats.data.totalActors.toLocaleString();
+                    document.getElementById('totalCount').textContent = (stats.data.totalArtists + stats.data.totalGroups + stats.data.totalActors).toLocaleString();
+                }
+            } catch (error) {
+                console.error('Failed to load stats:', error);
+            }
+        }
+        
+        async function loadBirthdaysToday() {
+            try {
+                const birthdays = await api.getBirthdaysToday();
+                const container = document.getElementById('birthdaysToday');
+                
+                if (birthdays.data.length === 0) {
+                    container.innerHTML = '🤷‍♀️ No birthdays today.';
+                    return;
+                }
+                
+                container.innerHTML = birthdays.data.map(artist => 
+                    `<div class="birthday-item">
+                        🎂 <strong>${artist.stageName}</strong> ${artist.fullName ? `(${artist.fullName})` : ''}
+                        ${artist.company ? `- ${artist.company}` : ''}
+                    </div>`
+                ).join('');
+            } catch (error) {
+                document.getElementById('birthdaysToday').innerHTML = '❌ Failed to load birthdays.';
+            }
+        }
+        
+        async function loadAnniversariesToday() {
+            try {
+                const anniversaries = await api.getAnniversariesToday();
+                const container = document.getElementById('anniversariesToday');
+                
+                if (anniversaries.data.length === 0) {
+                    container.innerHTML = '🤷‍♀️ No anniversaries today.';
+                    return;
+                }
+                
+                container.innerHTML = anniversaries.data.map(group => 
+                    `<div class="anniversary-item">
+                        🎉 <strong>${group.name}</strong> - ${group.yearsActive} years since debut!
+                        ${group.company ? `(${group.company})` : ''}
+                    </div>`
+                ).join('');
+            } catch (error) {
+                document.getElementById('anniversariesToday').innerHTML = '❌ Failed to load anniversaries.';
+            }
+        }
+        
+        // Load initial data
+        loadStats();
+        loadBirthdaysToday();
+        loadAnniversariesToday();
+        
+        // Allow search on Enter key
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+        
+        // Demo searches
+        const demoSearches = ['BTS', 'BLACKPINK', 'IU', 'TWICE', 'Stray Kids'];
+        let demoIndex = 0;
+        
+        setInterval(() => {
+            const input = document.getElementById('searchInput');
+            if (!input.value) {
+                input.placeholder = `Search for artists, groups, or actors... (try '${demoSearches[demoIndex]}')`;
+                demoIndex = (demoIndex + 1) % demoSearches.length;
+            }
+        }, 3000);
+    </script>
+</body>
+</html>
