@@ -11,6 +11,9 @@ const v2Router = require('./routes/v2');
 
 const app = express();
 
+// Trust proxy for rate limiting (needed for deployment environments)
+app.set('trust proxy', 1);
+
 // Security middleware
 app.use(helmet({
   contentSecurityPolicy: false, // Disable for Swagger UI
@@ -27,6 +30,7 @@ const limiter = rateLimit({
   },
   standardHeaders: true,
   legacyHeaders: false,
+  trustProxy: true
 });
 
 app.use('/api/', limiter);
