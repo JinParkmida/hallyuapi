@@ -1,0 +1,20 @@
+
+> hallyu-api@2.0.0 start
+> node server.js
+
+Loaded 352 groups, 1428 artists, 310 actors
+🚀 Hallyu API v2.0 is running!
+📍 Server: http://0.0.0.0:12000
+📚 Documentation: http://0.0.0.0:12000/api/docs
+🔍 API v2: http://0.0.0.0:12000/api/v2
+🏥 Health Check: http://0.0.0.0:12000/health
+⚡ Environment: development
+
+Available endpoints:
+  GET  /api/v2              - API information
+  GET  /api/v2/idols        - List all idols
+  GET  /api/v2/groups       - List all groups
+  GET  /api/v2/companies    - List all companies
+  GET  /api/v2/stats        - Statistics
+  GET  /api/v2/search       - Search functionality
+  GET  /api/docs            - API documentation

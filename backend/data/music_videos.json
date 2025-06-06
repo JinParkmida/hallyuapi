@@ -1,0 +1,72 @@
+[
+  {
+    "Id": 1,
+    "Title": "Dynamite",
+    "Artist": "BTS",
+    "Group": "BTS",
+    "ReleaseDate": "2020-08-21",
+    "Views": 1500000000,
+    "Duration": "3:19",
+    "Type": "mv",
+    "YouTubeId": "gdZLi9oWNZg",
+    "Album": "BE",
+    "Director": "Yong Seok Choi",
+    "Company": "Big Hit Entertainment"
+  },
+  {
+    "Id": 2,
+    "Title": "How You Like That",
+    "Artist": "BLACKPINK",
+    "Group": "BLACKPINK",
+    "ReleaseDate": "2020-06-26",
+    "Views": 1200000000,
+    "Duration": "3:01",
+    "Type": "mv",
+    "YouTubeId": "ioNng23DkIM",
+    "Album": "THE ALBUM",
+    "Director": "Seo Hyun Seung",
+    "Company": "YG Entertainment"
+  },
+  {
+    "Id": 3,
+    "Title": "Next Level",
+    "Artist": "aespa",
+    "Group": "aespa",
+    "ReleaseDate": "2021-05-17",
+    "Views": 800000000,
+    "Duration": "3:30",
+    "Type": "mv",
+    "YouTubeId": "4TWR90KJl84",
+    "Album": "Next Level",
+    "Director": "Rigend Film",
+    "Company": "SM Entertainment"
+  },
+  {
+    "Id": 4,
+    "Title": "WANNABE",
+    "Artist": "ITZY",
+    "Group": "ITZY",
+    "ReleaseDate": "2020-03-09",
+    "Views": 700000000,
+    "Duration": "3:03",
+    "Type": "mv",
+    "YouTubeId": "fE2h3lGlOsk",
+    "Album": "IT'z ME",
+    "Director": "Naive Creative Production",
+    "Company": "JYP Entertainment"
+  },
+  {
+    "Id": 5,
+    "Title": "God's Menu",
+    "Artist": "Stray Kids",
+    "Group": "Stray Kids",
+    "ReleaseDate": "2020-06-17",
+    "Views": 600000000,
+    "Duration": "2:58",
+    "Type": "mv",
+    "YouTubeId": "TQTlCHxyuu8",
+    "Album": "GO生",
+    "Director": "Bang Jae Yeob",
+    "Company": "JYP Entertainment"
+  }
+]
