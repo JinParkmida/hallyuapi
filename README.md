@@ -417,7 +417,6 @@ This API and its associated documentation are proprietary software. No part of t
 
 ### Contact Information
 - **Business Inquiries**: Contact through GitHub for commercial discussions
-- **Twitter**: [@_elletownsend](https://twitter.com/_elletownsend)
 - **Partnership Opportunities**: Open to strategic partnerships and collaborations
 
 ---
