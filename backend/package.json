@@ -10,7 +10,8 @@
   },
   "keywords": ["kpop", "api", "database", "hallyu", "korean"],
   "author": "JinParkmida",
-  "license": "MIT",
+  "license": "UNLICENSED",
+  "private": true,
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",

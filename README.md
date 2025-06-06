@@ -3,8 +3,9 @@
 > The most comprehensive K-pop database API, providing access to extensive Korean Wave data including artists, groups, actors, and entertainment companies.
 
 [![API Version](https://img.shields.io/badge/API-v2.0-blue.svg)](https://github.com/JinParkmida/hallyuapi)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/license-Proprietary-red.svg)](#-license)
 [![Data Source](https://img.shields.io/badge/data-dbkpop.com-purple.svg)](https://dbkpop.com/)
+[![Status](https://img.shields.io/badge/status-Private%20Development-orange.svg)](#)
 
 ## 🚀 Quick Start
 
@@ -310,33 +311,19 @@ fetch('/api/v2/stats/companies')
   });
 ```
 
-## 🤝 Contributing
+## 🔒 Development Status
 
-We welcome contributions from the K-pop community! Please read our [Contributing Guide](Contributing.md) for details on:
+This API is currently in **private development** and is not open for public contributions. The codebase is proprietary and intended for commercial use.
 
-- Code of conduct
-- Development process
-- Pull request guidelines
-- Issue reporting
+### Current Access
+- **Private Repository**: Access restricted to authorized developers only
+- **API Usage**: Currently for internal development and testing
+- **Commercial Plans**: API will be available as a commercial product in the future
 
-### Quick Contribution Steps
-
-1. **Fork the repository**
-2. **Create a feature branch**
-   ```bash
-   git checkout -b feature/amazing-feature
-   ```
-3. **Make your changes**
-4. **Add tests if applicable**
-5. **Commit your changes**
-   ```bash
-   git commit -m "Add amazing feature"
-   ```
-6. **Push to your branch**
-   ```bash
-   git push origin feature/amazing-feature
-   ```
-7. **Open a Pull Request**
+### Future Availability
+- **Beta Access**: Limited beta access may be available to select partners
+- **Commercial Launch**: Full API access will be available through paid plans
+- **Enterprise Solutions**: Custom enterprise solutions will be offered
 
 ## 🐛 Error Handling
 
@@ -400,7 +387,16 @@ The API uses standard HTTP status codes and provides detailed error messages:
 
 ## 📄 License
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+**All Rights Reserved** - This software is proprietary and confidential.
+
+### License Terms
+- **Copyright**: © 2025 JinParkmida. All rights reserved.
+- **Usage**: Unauthorized copying, distribution, or use is strictly prohibited
+- **Access**: Limited to authorized personnel only
+- **Commercial Use**: Contact owner for licensing inquiries
+
+### Legal Notice
+This API and its associated documentation are proprietary software. No part of this software may be reproduced, distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of the copyright owner, except in the case of brief quotations embodied in critical reviews and certain other noncommercial uses permitted by copyright law.
 
 ## 🙏 Acknowledgments
 
@@ -408,21 +404,21 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - **Community**: The amazing K-pop fan community for inspiration and feedback
 - **Contributors**: All developers who have contributed to this project
 
-## 📞 Support & Contact
+## 📞 Contact & Business Inquiries
 
-- **Issues**: [GitHub Issues](https://github.com/JinParkmida/hallyuapi/issues)
+### For Business & Licensing
+- **Commercial Licensing**: Contact for API licensing and partnership opportunities
+- **Enterprise Solutions**: Custom enterprise implementations available
+- **Beta Access**: Inquire about early access programs
+
+### Technical Support
+- **Authorized Users**: Technical support available for authorized developers
+- **Documentation**: Comprehensive API documentation available to licensed users
+
+### Contact Information
+- **Business Inquiries**: Contact through GitHub for commercial discussions
 - **Twitter**: [@_elletownsend](https://twitter.com/_elletownsend)
-- **Email**: Contact us through GitHub for technical support
-
-## 🌟 Show Your Support
-
-If this API helps your project, please consider:
-
-- ⭐ Starring the repository
-- 🐛 Reporting bugs and issues
-- 💡 Suggesting new features
-- 🤝 Contributing code improvements
-- 📢 Sharing with the K-pop developer community
+- **Partnership Opportunities**: Open to strategic partnerships and collaborations
 
 ---
 
